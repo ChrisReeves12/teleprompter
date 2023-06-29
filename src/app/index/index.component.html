@@ -1,0 +1,33 @@
+<div [ngStyle]="{height: (containerHeight - 100) + 'px'}" class="teleprompter-container">
+  <div [ngStyle]="{'font-size': '40px', 'width': contentWidth + '%'}" class="content-section">
+    <p class="count-down" *ngIf="countDown">{{ countDown }}</p>
+    <p class="script-content" [ngStyle]="{
+        'font-size': fontSize + 'px',
+        'top': scrollPosition + 'px',
+        'opacity': countDown ? 0.3 : 1
+        }" [innerHTML]="script | newlineToBreak"></p>
+  </div>
+  <div class="control-message-input-section">
+    <textarea (input)="setScript($event)" [value]="script" placeholder="Enter your script here..." class="message-input"></textarea>
+    <div class="controls">
+      <div class="button-section">
+        <button (click)="isScrolling ? pauseScrolling($event) : startScrolling($event)">{{ isScrolling || countDown ? 'Pause' : 'Play' }}</button>
+        <button (click)="reset($event)">Reset</button>
+      </div>
+      <div class="settings-section">
+        <div class="setting">
+          <label>Speed: {{scrollSpeed}}</label>
+          <input (input)="setScrollSpeed($event)" type="range" min="1" max="100" [value]="scrollSpeed">
+        </div>
+        <div class="setting">
+          <label>Font Size: {{fontSize}}px</label>
+          <input (input)="setFontSize($event)" [value]="fontSize" type="range" min="14" max="80" value="30">
+        </div>
+        <div class="setting">
+          <label>Content Width: {{contentWidth}}%</label>
+          <input (input)="setContentWidth($event)" [value]="contentWidth" type="range" min="10" max="99" value="99">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

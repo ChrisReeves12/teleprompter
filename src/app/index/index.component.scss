@@ -1,0 +1,92 @@
+.teleprompter-container {
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica, Arial, sans-serif;
+
+  .content-section {
+    flex: 1;
+    background: #3f3f3f;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: normal;
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow-y: hidden;
+    margin: 0 auto;
+
+    .script-content {
+      margin: 0;
+      top: 10px;
+      padding: 0;
+      position: absolute;
+    }
+
+    .count-down {
+      text-align: center; width: 100%;
+      font-size: 150px;
+    }
+  }
+
+  .control-message-input-section {
+    height: 200px;
+    display: flex;
+    padding: 10px;
+
+    .message-input {
+      padding: 10px;
+      font-family: "Courier New", Courier, monospace;
+      outline-width: 0;
+      font-size: 15px;
+      flex: 1;
+
+      &:focus {
+        outline-width: 0;
+      }
+    }
+
+    .controls {
+      flex: 1;
+      padding-left: 16px;
+      display: flex;
+
+      .button-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        button {
+          color: white;
+          font-weight: bold;
+          --moz-appearance: none;
+          --webkit-appearance: none;
+          background-color: #2d64bd;
+          border: 0;
+          border-radius: 4px;
+          padding: 8px;
+          font-size: 17px;
+          margin-bottom: 10px;
+        }
+      }
+
+      .settings-section {
+        flex: 2;
+        padding-left: 16px;
+
+        .setting {
+          padding-bottom: 5px;
+          label {
+            display: block;
+            font-size: 18px;
+            padding-bottom: 10px;
+          }
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
